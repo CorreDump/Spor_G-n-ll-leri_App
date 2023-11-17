@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\flutter_apps\cmd_proje\windows\runner\flutter_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\flutter_apps\cmd_proje\windows\runner\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\flutter_apps\cmd_proje\windows\runner\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\flutter_apps\cmd_proje\windows\runner\win32_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\flutter_apps\cmd_proje\windows\flutter\generated_plugin_registrant.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\flutter_apps\cmd_proje\windows\runner\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\flutter_apps\cmd_proje\windows\runner\Runner.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{69015550-4E68-3EE3-8942-8B65185E0A6A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
