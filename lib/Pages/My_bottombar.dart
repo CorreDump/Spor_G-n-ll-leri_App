@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'Certificate_page.dart';
-import 'Settings.dart';
-import 'Past_event.dart';
-import '../main.dart';
 
 class My_bottom_bar extends StatelessWidget {
   const My_bottom_bar({super.key});
@@ -21,8 +17,9 @@ class My_bottom_bar extends StatelessWidget {
             onPressed: () {
               // boyle kullanmak daha mantikli gibi
               //Navigator.of(context).pushNamed("/Home_page");
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => MyApp()));
+              if (ModalRoute.of(context)?.settings.name != '/') {
+                Navigator.of(context).pushNamed('/');
+              }
             },
           ),
           IconButton(
@@ -30,24 +27,28 @@ class My_bottom_bar extends StatelessWidget {
             color: Colors.white,
             onPressed: () {
               // push replacement stack yeri degisir bu kullanilabilir stack surekli yer tutmus olmaz
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Past_event()));
+              if (ModalRoute.of(context)?.settings.name != '/past_event_page') {
+                Navigator.of(context).pushNamed('/past_event_page');
+              }
             },
           ),
           IconButton(
             icon: Icon(Icons.search),
             color: Colors.white,
             onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Certificate()));
+              if (ModalRoute.of(context)?.settings.name !=
+                  '/certificate_page') {
+                Navigator.of(context).pushNamed('/certificate_page');
+              }
             },
           ),
           IconButton(
             icon: Icon(Icons.settings),
             color: Colors.white,
             onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Settings()));
+              if (ModalRoute.of(context)?.settings.name != '/settings_page') {
+                Navigator.of(context).pushNamed('/settings_page');
+              }
             },
           )
         ],

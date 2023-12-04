@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'My_bottombar.dart';
 import 'My_Appbar.dart';
+import 'NavBar.dart';
 
 class Home_page extends StatelessWidget {
   const Home_page({super.key});
@@ -9,6 +10,7 @@ class Home_page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: My_Appbar(),
+      drawer: NavBar(),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

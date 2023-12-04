@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 
 class My_Appbar extends StatelessWidget implements PreferredSizeWidget {
-  const My_Appbar({super.key});
+  const My_Appbar({Key? key}) : super(key: key); // Fix super.key
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Color.fromRGBO(07, 67, 49, 86),
+      backgroundColor: Color.fromRGBO(7, 67, 49, 1), // Adjusted color range
       centerTitle: true,
-      leading: IconButton(
-        icon: const Icon(
-          Icons.menu,
-        ),
-        color: Colors.white,
-        onPressed: () {
-          // Menu icon is pressed
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
         },
       ),
       actions: [
