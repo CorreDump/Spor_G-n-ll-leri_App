@@ -5,6 +5,8 @@ import 'Certificate_page.dart';
 import 'Main_page.dart';
 import 'Past_event.dart';
 import 'Settings.dart';
+import 'Sign_in_page.dart';
+import 'Sign_up_page.dart';
 
 class RouteGenerator {
   static Route<dynamic>? _routeOlustur(
@@ -36,6 +38,10 @@ class RouteGenerator {
         return _routeOlustur(Past_event(), settings);
       case '/certificate_page':
         return _routeOlustur(Certificate(), settings);
+      case '/Sign_in_page':
+        return _routeOlustur(Sign_in(), settings);
+      case '/Sign_up_page':
+        return _routeOlustur(Sign_up(), settings);
 
       default:
         return MaterialPageRoute(

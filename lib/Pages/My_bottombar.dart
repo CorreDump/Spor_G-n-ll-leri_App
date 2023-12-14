@@ -23,7 +23,7 @@ class My_bottom_bar extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: Icon(Icons.calendar_month),
+            icon: Icon(Icons.history),
             color: Colors.white,
             onPressed: () {
               // push replacement stack yeri degisir bu kullanilabilir stack surekli yer tutmus olmaz
@@ -33,7 +33,7 @@ class My_bottom_bar extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.article_outlined),
             color: Colors.white,
             onPressed: () {
               if (ModalRoute.of(context)?.settings.name !=

@@ -1,39 +1,141 @@
 import 'package:flutter/material.dart';
-import 'My_bottombar.dart';
+import 'detailscreen.dart';
 import 'My_Appbar.dart';
+import 'My_bottombar.dart';
 import 'NavBar.dart';
 
-class Home_page extends StatelessWidget {
-  const Home_page({super.key});
+class Home_page extends StatefulWidget {
+  const Home_page({Key? key}) : super(key: key);
+
+  @override
+  State<Home_page> createState() => _Home_pageState();
+}
+
+class _Home_pageState extends State<Home_page> {
+  double screenWidth = 0;
+  double screenHeight = 0;
 
   @override
   Widget build(BuildContext context) {
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: My_Appbar(),
       drawer: NavBar(),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const Text(
-              'Gelecekteki Etkinlikler',
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 20.0, // Set your desired font size
-                color: Color.fromRGBO(16, 0, 0, 0.667),
-                fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: screenWidth / 20,
+          ),
+          child: Column(
+            children: [
+              const Text(
+                'Gelecekteki Etkinlikler',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 20.0, // Set your desired font size
+                  color: Color.fromRGBO(16, 0, 0, 0.667),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Container(
+                color: Colors.black26,
+                width: screenWidth,
+                height: 1,
+                margin: const EdgeInsets.symmetric(
+                  vertical: 10,
+                ),
+              ),
+              item(
+                  "vegetables.jpg",
+                  "Vegetables",
+                  "Vegetables are parts of plants that are consumed by humans or other animals as food.",
+                  "Vegetables are parts of plants that are consumed by humans or other animals as food. The original meaning is still commonly used and is applied to plants collectively to refer to all edible plant matter, including the flowers, fruits, stems, leaves, roots, and seeds. An alternative definition of the term is applied somewhat arbitrarily, often by culinary and cultural tradition. It may exclude foods derived from some plants that are fruits, flowers, nuts, and cereal grains, but include savoury fruits such as tomatoes and courgettes, flowers such as broccoli, and seeds such as pulses."),
+              item(
+                  "fruits.jpg",
+                  "Fruits",
+                  "Fruits are the means by which flowering plants (also known as angiosperms) disseminate their seeds.",
+                  "Fruits are the means by which flowering plants (also known as angiosperms) disseminate their seeds. Edible fruits in particular have long propagated using the movements of humans and animals in a symbiotic relationship that is the means for seed dispersal for the one group and nutrition for the other; in fact, humans and many animals have become dependent on fruits as a source of food.[1] Consequently, fruits account for a substantial fraction of the world's agricultural output, and some (such as the apple and the pomegranate) have acquired extensive cultural and symbolic meanings."),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: My_bottom_bar(),
+    );
+  }
+
+  Widget item(String asset, String title, String desc, String fullDesc) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => DetailScreen(
+              asset: asset,
+              tag: title,
+              fullDesc: fullDesc,
+            ),
+          ),
+        );
+      },
+      child: Container(
+        height: screenWidth / 2.8,
+        width: screenWidth,
+        margin: EdgeInsets.only(
+          bottom: screenWidth / 20,
+        ),
+        child: Row(
+          children: [
+            Hero(
+              tag: title,
+              child: Container(
+                width: screenWidth / 2.8,
+                height: screenWidth / 2.8,
+                margin: EdgeInsets.only(
+                  right: screenWidth / 20,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    "images/$asset",
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
             Expanded(
-              child: ListView(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(bottom: 48.0),
-                    child: Image.asset(
-                      './images/image_1.jpeg',
-                      fit: BoxFit.cover,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Colors.black87,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        desc,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black87,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Text(
+                    "In-Stock",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.green,
+                      fontSize: 20,
                     ),
-                    height: 200,
                   ),
                 ],
               ),
@@ -41,7 +143,6 @@ class Home_page extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: My_bottom_bar(),
     );
   }
 }

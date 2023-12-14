@@ -10,6 +10,7 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(203, 203, 203, 0.984),
       appBar: My_Appbar(),
       drawer: NavBar(),
       body: InformationForm(),

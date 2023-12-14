@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'HakkimizdaPage.dart';
+import 'AkademiPage.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -24,14 +26,17 @@ class NavBar extends StatelessWidget {
                 SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
-                    // Handle "Giriş Yap" button click
+                    if (ModalRoute.of(context)?.settings.name !=
+                        '/Sign_in_page') {
+                      Navigator.of(context).pushNamed('/Sign_in_page');
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white, // Set the button background color
                   ),
                   child: ListTile(
                     title: Text(
-                      'Giriş Yap',
+                      'Sign in',
                       style: TextStyle(
                         color: Color.fromRGBO(
                             7, 67, 49, 1), // Adjusted color range
@@ -48,14 +53,17 @@ class NavBar extends StatelessWidget {
                 SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
-                    // Handle "Üye Ol" button click
+                    if (ModalRoute.of(context)?.settings.name !=
+                        '/Sign_up_page') {
+                      Navigator.of(context).pushNamed('/Sign_up_page');
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white, // Set the button background color
                   ),
                   child: ListTile(
                     title: Text(
-                      'Üye Ol',
+                      'Sign up',
                       style: TextStyle(
                         color: Color.fromRGBO(
                             7, 67, 49, 1), // Adjusted color range
@@ -75,13 +83,19 @@ class NavBar extends StatelessWidget {
           ListTile(
             title: Text('Akademi'),
             onTap: () {
-              // Handle drawer item click
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AkademiPage()),
+              );
             },
           ),
           ListTile(
             title: Text('Hakkımızda'),
             onTap: () {
-              // Handle drawer item click
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HakkimizdaPage()),
+              );
             },
           ),
           // Add more items as needed
